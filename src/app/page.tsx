@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-const stripeBasico = "https://buy.stripe.com/9B614oee94Bk1rzciCcMM0s";
-const stripeFounder = "https://buy.stripe.com/cNifZi3zv1p8dah4QacMM0t";
+const stripeInicio = "https://buy.stripe.com/6oU4gA2vr7Nw8U1eqKcMM0v";
+const stripeProfesional = "https://buy.stripe.com/cNicN6fid6Js7PXciCcMM0w";
 
 const painPoints = [
   {
@@ -65,45 +65,42 @@ const detallesAnalisis = [
 
 const planes = [
   {
-    nombre: "BÁSICO",
-    precio: "$19.99",
+    nombre: "INICIO",
+    precio: "$5.99",
     descripcion: "Pago único",
-    url: stripeBasico,
-    boton: "Comprar Plan Básico",
+    url: stripeInicio,
+    boton: "Comprar ahora",
     destacado: false,
     beneficios: [
-      "CV completamente analizado por IA",
-      "CV reescrito y optimizado 5 veces",
+      "CV analizado por IA",
       "Optimización ATS",
-      "Carta de presentación personalizada",
       "Career Score y ATS Score",
       "Top 3 errores críticos",
       "Top 5 empleos para tu perfil",
-      "Salarios base por país y sector",
       "Roadmap 90 días",
       "Dashboard personal",
       "Reporte completo en PDF",
     ],
   },
   {
-    nombre: "FOUNDER",
-    precio: "$49.99",
+    nombre: "PROFESIONAL",
+    precio: "$19.99",
     descripcion: "Pago único",
-    badge: "SOLO 100 CUPOS",
-    url: stripeFounder,
-    boton: "Obtener acceso Founder",
+    badge: "MÁS ELEGIDO",
+    url: stripeProfesional,
+    boton: "Comprar ahora",
     destacado: true,
     beneficios: [
-      "Todo lo del Plan Básico",
-      "CV reescrito hasta 15 veces",
-      "Trabajo remoto en dólares",
-      "Trabajo en otro país on-site",
+      "Todo lo del Plan Inicio",
+      "CV reescrito y optimizado 5 veces",
+      "Carta de presentación personalizada",
+      "Salarios base por país y sector",
+      "Mercado laboral actual",
+      "Carreras más buscadas",
+      "Mejores certificaciones",
+      "Skills más demandadas",
       "Estrategia LinkedIn completa",
-      "Inglés técnico para CV",
-      "Herramientas futuras incluidas",
-      "Cursos futuros incluidos",
-      "Founder Badge permanente",
-      "Soporte prioritario",
+      "Reporte profesional en PDF",
     ],
   },
 ];
@@ -150,7 +147,7 @@ const preguntas = [
   {
     pregunta: "¿El pago es mensual?",
     respuesta:
-      "No. El Plan Básico y Founder son pagos únicos.",
+      "No. El Plan Inicio y el Plan Profesional son pagos únicos.",
   },
   {
     pregunta: "¿Qué es ATS?",
@@ -200,10 +197,10 @@ export default function Home() {
               Ver qué recibo
             </a>
             <a
-              href={stripeBasico}
+              href={stripeInicio}
               className="rounded-full border border-[#60A5FA]/30 bg-[#1B4FE4] px-5 py-3 text-sm font-black text-white shadow-[0_0_32px_rgba(59,130,246,0.42)] transition hover:-translate-y-0.5 hover:bg-[#3B82F6]"
             >
-              Comprar Plan Básico
+              Comprar ahora
             </a>
           </div>
         </div>
@@ -235,10 +232,10 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href={stripeBasico}
+                href={stripeInicio}
                 className="rounded-full border border-[#60A5FA]/30 bg-[#1B4FE4] px-7 py-4 text-center text-base font-black text-white shadow-[0_0_36px_rgba(59,130,246,0.46)] transition hover:-translate-y-0.5 hover:bg-[#3B82F6]"
               >
-                Comprar Plan Básico
+                Comprar ahora
               </a>
               <a
                 href="#recibes"
@@ -670,7 +667,7 @@ export default function Home() {
                   COMPRA TU AN&Aacute;LISIS
                 </h3>
                 <p className="mt-4 text-lg leading-8 text-slate-600">
-                  Elige Plan B&aacute;sico o Founder y desbloquea tu diagn&oacute;stico
+                  Elige Plan Inicio o Profesional y desbloquea tu diagn&oacute;stico
                   profesional.
                 </p>
               </div>
@@ -925,40 +922,12 @@ export default function Home() {
                     {plan.descripcion}
                   </span>
                 </div>
-                {plan.destacado && (
-                  <p className="mt-4 rounded-lg bg-white/10 p-3 text-sm font-bold text-blue-100">
-                    Cupos Founder disponibles: 100
-                  </p>
-                )}
                 <ul className="mt-6 space-y-3">
                   {plan.beneficios.map((beneficio) => (
-                    <li
-                      key={beneficio}
-                      className={`flex gap-3 ${
-                        beneficio === "Founder Badge permanente"
-                          ? "items-center text-base font-bold text-white"
-                          : ""
-                      }`}
-                    >
-                      {beneficio === "Founder Badge permanente" ? (
-                        <span className="relative size-5 shrink-0">
-                          <Image
-                            src="/shield.png"
-                            alt="Founder Badge"
-                            width={26}
-                            height={26}
-                            className="absolute left-1/2 top-1/2 size-[26px] -translate-x-1/2 -translate-y-1/2 object-contain"
-                            style={{
-                              filter:
-                                "drop-shadow(0 0 5px rgba(59,130,246,0.85))",
-                            }}
-                          />
-                        </span>
-                      ) : (
-                        <span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-[#10B981] text-xs font-black text-white">
-                          ✓
-                        </span>
-                      )}
+                    <li key={beneficio} className="flex gap-3">
+                      <span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-[#10B981] text-xs font-black text-white">
+                        &#10003;
+                      </span>
                       <span>{beneficio}</span>
                     </li>
                   ))}
@@ -975,182 +944,6 @@ export default function Home() {
                 </a>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="afiliados"
-        className="relative overflow-hidden bg-[#0A1628] px-5 py-16 text-white sm:px-8 lg:py-24"
-      >
-        <div className="absolute inset-0 opacity-35 [background-image:radial-gradient(circle_at_20%_10%,#3B82F6_0,transparent_26%),radial-gradient(circle_at_80%_20%,#1B4FE4_0,transparent_30%)]" />
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-black text-blue-100 shadow-[3px_3px_0px_#000]">
-                <span className="pulse-dot size-2 rounded-full bg-[#10B981]" />
-                30% DE COMISI&Oacute;N
-              </div>
-              <p className="text-sm font-mono font-semibold uppercase tracking-[0.18em] text-[#3B82F6]">
-                PROGRAMA DE AFILIADOS
-              </p>
-              <h2 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-6xl">
-                Gana dinero ayudando a otras personas a conseguir empleo.
-              </h2>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-blue-100">
-                Comparte SinPalanca.app con estudiantes, profesionales, amigos o
-                familiares que est&eacute;n buscando trabajo y gana comisiones por cada
-                venta aprobada.
-              </p>
-            </div>
-            <div className="overflow-hidden rounded-lg border border-white/15 bg-white/10 p-3 shadow-[7px_7px_0px_#000]">
-              <div className="min-h-[360px] rounded-lg bg-[url('/programa-afiliados.png')] bg-cover bg-center sm:min-h-[460px]" />
-            </div>
-          </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
-            <article className="rounded-lg border border-white/15 bg-white p-6 text-[#0A1628] shadow-[7px_7px_0px_#000]">
-              <h3 className="text-3xl font-semibold">PLAN B&Aacute;SICO</h3>
-              <p className="mt-5 text-sm font-mono font-semibold uppercase tracking-[0.16em] text-[#1B4FE4]">
-                Comisi&oacute;n por venta:
-              </p>
-              <p className="mt-2 text-5xl font-extrabold">$5.99 USD</p>
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                Cada vez que alguien compre el Plan B&aacute;sico usando tu enlace
-                recibir&aacute;s una comisi&oacute;n aprobada despu&eacute;s del per&iacute;odo de
-                validaci&oacute;n.
-              </p>
-            </article>
-            <article className="rounded-lg border border-white/15 bg-[#1B4FE4] p-6 text-white shadow-[7px_7px_0px_#000]">
-              <h3 className="text-3xl font-semibold">PLAN FOUNDER</h3>
-              <p className="mt-5 text-sm font-mono font-semibold uppercase tracking-[0.16em] text-blue-100">
-                Comisi&oacute;n por venta:
-              </p>
-              <p className="mt-2 text-5xl font-extrabold">$14.99 USD</p>
-              <p className="mt-5 text-lg leading-8 text-blue-100">
-                Cada vez que alguien compre el Plan Founder usando tu enlace
-                recibir&aacute;s una comisi&oacute;n aprobada despu&eacute;s del per&iacute;odo de
-                validaci&oacute;n.
-              </p>
-            </article>
-          </div>
-
-          <div className="mt-10 rounded-lg border border-white/15 bg-white/10 p-6 shadow-[7px_7px_0px_#000]">
-            <h3 className="text-3xl font-semibold sm:text-4xl">
-              &iquest;CU&Aacute;NDO RECIBO MIS COMISIONES?
-            </h3>
-            <div className="mt-5 grid gap-4 text-lg leading-8 text-blue-100 lg:grid-cols-3">
-              <p>
-                Para proteger a afiliados y clientes, las comisiones pasan por
-                un per&iacute;odo de validaci&oacute;n de 14 d&iacute;as.
-              </p>
-              <p>
-                Las ventas que no tengan reembolsos, disputas o contracargos
-                ser&aacute;n aprobadas autom&aacute;ticamente.
-              </p>
-              <p>Los pagos de afiliados se realizan cada 15 d&iacute;as.</p>
-            </div>
-          </div>
-
-          <div className="mt-14">
-            <h3 className="text-3xl font-semibold sm:text-4xl">
-              &iquest;CU&Aacute;NTO PODR&Iacute;AS GANAR?
-            </h3>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                ["10 ventas Founder", "$149.90 USD"],
-                ["25 ventas Founder", "$374.75 USD"],
-                ["50 ventas Founder", "$749.50 USD"],
-                ["100 ventas Founder", "$1,499 USD"],
-              ].map(([ventas, monto]) => (
-                <article
-                  key={ventas}
-                  className="rounded-lg border border-white/15 bg-white/10 p-5"
-                >
-                  <p className="font-black text-blue-100">{ventas}</p>
-                  <p className="mt-3 text-3xl font-semibold">{monto}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-14 grid gap-8 lg:grid-cols-2">
-            <div>
-              <h3 className="text-3xl font-semibold sm:text-4xl">
-                &iquest;POR QU&Eacute; PROMOCIONAR SINPALANCA?
-              </h3>
-              <ul className="mt-6 space-y-3">
-                {[
-                  "30% de comisi\u00f3n por venta",
-                  "Producto digital",
-                  "Miles de personas buscan empleo cada d\u00eda",
-                  "No necesitas experiencia en ventas",
-                  "Ayudas a otras personas a mejorar su futuro profesional",
-                  "Sin l\u00edmite de referidos",
-                  "Pagos quincenales",
-                  "Dashboard de afiliado pr\u00f3ximamente",
-                ].map((beneficio) => (
-                  <li key={beneficio} className="flex gap-3">
-                    <span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-[#10B981] text-xs font-black text-white">
-                      &#10003;
-                    </span>
-                    <span className="text-lg text-blue-100">{beneficio}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-3xl font-semibold sm:text-4xl">
-                &iquest;C&Oacute;MO FUNCIONA?
-              </h3>
-              <div className="mt-6 space-y-4">
-                {[
-                  ["Paso 1", "Obt\u00e9n tu enlace de afiliado."],
-                  [
-                    "Paso 2",
-                    "Comp\u00e1rtelo en redes sociales, grupos, WhatsApp, TikTok o con amigos.",
-                  ],
-                  ["Paso 3", "Las ventas aprobadas generan comisiones."],
-                  ["Paso 4", "Recibe tu pago cada 15 d\u00edas."],
-                ].map(([paso, texto]) => (
-                  <article
-                    key={paso}
-                    className="rounded-lg border border-white/15 bg-white/10 p-5"
-                  >
-                    <p className="text-sm font-mono font-semibold uppercase tracking-[0.16em] text-[#3B82F6]">
-                      {paso}
-                    </p>
-                    <p className="mt-2 text-xl font-semibold">{texto}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-14 rounded-lg border border-white/15 bg-white/10 p-6 text-center shadow-[7px_7px_0px_#000]">
-            <p className="text-sm font-mono font-semibold uppercase tracking-[0.18em] text-[#3B82F6]">
-              IMPORTANTE
-            </p>
-            <div className="mx-auto mt-4 max-w-4xl space-y-3 text-lg leading-8 text-blue-100">
-              <p>
-                Las comisiones solo se pagan por ventas v&aacute;lidas y completadas.
-              </p>
-              <p>
-                Las ventas reembolsadas, canceladas o con disputas no generan
-                comisi&oacute;n.
-              </p>
-              <p>
-                El programa de afiliados estar&aacute; disponible pr&oacute;ximamente.
-                Actualmente estamos aceptando interesados para la primera
-                versi&oacute;n.
-              </p>
-            </div>
-            <a
-              href="mailto:contacto@sinpalanca.app"
-              className="mt-6 inline-flex rounded-full bg-white px-8 py-4 text-lg font-semibold text-[#1B4FE4] shadow-[3px_3px_0px_#3B82F6] transition hover:-translate-y-0.5 hover:bg-blue-50"
-            >
-              QUIERO SER AFILIADO
-            </a>
           </div>
         </div>
       </section>
@@ -1284,16 +1077,16 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <a
-              href={stripeBasico}
+              href={stripeInicio}
               className="rounded-full bg-white px-8 py-4 text-lg font-semibold text-[#1B4FE4] shadow-[3px_3px_0px_#3B82F6] transition hover:-translate-y-0.5 hover:bg-blue-50"
             >
-              Comprar Plan Básico
+              Comprar ahora
             </a>
             <a
-              href={stripeFounder}
+              href={stripeProfesional}
               className="rounded-full border border-white bg-[#1B4FE4] px-8 py-4 text-lg font-semibold text-white shadow-[3px_3px_0px_#3B82F6] transition hover:-translate-y-0.5 hover:bg-[#3B82F6]"
             >
-              Obtener acceso Founder
+              Comprar ahora
             </a>
           </div>
         </div>
