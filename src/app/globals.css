@@ -189,3 +189,27 @@ pre,
 .dashboard-beam {
   animation: dashboard-beam 3.4s ease-in-out infinite;
 }
+
+@keyframes founder-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.founder-reveal {
+  animation: founder-fade-up 0.8s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 32%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .founder-reveal {
+    animation: none;
+  }
+}

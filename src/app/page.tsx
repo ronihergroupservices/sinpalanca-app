@@ -948,92 +948,44 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="historia" className="px-5 py-16 sm:px-8 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="rounded-lg border border-[#0A1628] bg-[#1B4FE4] p-8 text-white shadow-[7px_7px_0px_#0A1628]">
-            <div className="relative size-28 overflow-hidden rounded-full border-4 border-white bg-[#0A1628] shadow-[4px_4px_0px_#0A1628]">
-              <Image
-                src="/roni-profile.png"
-                alt="Roni, fundador de SinPalanca"
-                fill
-                sizes="112px"
-                className="object-cover"
-              />
+      <section id="historia" className="relative overflow-hidden bg-[linear-gradient(145deg,#F8FBFF_0%,#EDF4FF_52%,#F7FAFF_100%)] px-5 py-16 sm:px-8 lg:py-24">
+        <div className="pointer-events-none absolute -left-24 top-12 size-72 rounded-full bg-[#3B82F6]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-20 bottom-0 size-80 rounded-full bg-[#1B4FE4]/10 blur-3xl" />
+        <article className="founder-reveal group relative mx-auto grid max-w-7xl overflow-hidden rounded-[28px] border border-white/90 bg-white/95 shadow-[0_24px_80px_rgba(27,79,228,0.14)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(27,79,228,0.18)] lg:grid-cols-[0.72fr_1.28fr]">
+          <div className="relative flex flex-col items-center justify-center overflow-hidden border-b border-blue-100 bg-[linear-gradient(150deg,#F5F9FF_0%,#E7F0FF_100%)] px-6 py-12 text-center sm:px-10 lg:border-b-0 lg:border-r lg:py-16">
+            <div className="pointer-events-none absolute left-10 top-10 size-2 rounded-full bg-[#3B82F6] shadow-[0_0_18px_6px_rgba(59,130,246,0.35)]" />
+            <div className="pointer-events-none absolute bottom-16 right-10 size-1.5 rounded-full bg-[#10B981] shadow-[0_0_16px_5px_rgba(16,185,129,0.28)]" />
+            <div role="img" aria-label="Avatar provisional de Estefany Fox" className="grid size-40 place-items-center rounded-full border-[6px] border-white bg-[linear-gradient(145deg,#1B4FE4,#3B82F6)] text-5xl font-extrabold text-white shadow-[0_18px_45px_rgba(27,79,228,0.28)] sm:size-48 sm:text-6xl">
+              EF
             </div>
-            <p className="mt-6 text-sm font-mono font-semibold uppercase tracking-[0.18em] text-blue-100">
-              RONI &middot; FUNDADOR
+            <p className="mt-7 text-xl font-bold text-[#0A1628]">
+              <span aria-hidden="true">❤️</span> Estefany Fox
             </p>
-            <blockquote className="mt-5 space-y-4 text-3xl font-bold leading-tight sm:text-4xl">
-              <p>No necesitas contactos para construir tu futuro.</p>
-              <p>
-                Necesitas preparaci&oacute;n, estrategia y las herramientas
-                correctas.
-              </p>
+            <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 shadow-sm">
+              <span aria-hidden="true">🇵🇦</span> Creado desde Panamá
+            </p>
+          </div>
+          <div className="relative px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-16">
+            <span className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-[#1B4FE4]">
+              El origen de SinPalanca
+            </span>
+            <h2 className="mt-3 text-4xl font-bold leading-tight text-[#0A1628] sm:text-5xl">
+              Nuestra historia
+            </h2>
+            <div className="mt-7 space-y-5 text-base leading-[1.75] text-slate-600 sm:text-lg">
+              <p>SinPalanca.app nació después de vivir de cerca el proceso de buscar empleo, enviar cientos de aplicaciones y entender lo difícil que puede ser conseguir una oportunidad cuando no tienes contactos o recomendaciones.</p>
+              <p>Durante ese camino aprendimos que muchas personas tienen talento, experiencia y potencial, pero no saben cómo presentar correctamente su perfil profesional o cómo superar los filtros automáticos (ATS) que utilizan las empresas.</p>
+              <p>Después de años trabajando de forma remota y colaborando con personas de distintos países, decidimos crear SinPalanca.app para ayudar a quienes quieren competir por mejores oportunidades utilizando estrategia, experiencia e inteligencia artificial.</p>
+              <div>
+                <p className="font-bold text-[#0A1628]">Nuestra misión es sencilla:</p>
+                <p className="mt-2">Que cualquier persona en Latinoamérica pueda construir un perfil profesional competitivo, incluso sin tener contactos, recomendaciones o &quot;palancas&quot;.</p>
+              </div>
+            </div>
+            <blockquote className="mt-8 border-l-4 border-[#1B4FE4] bg-[#F0F5FF] px-5 py-4 text-lg font-semibold italic leading-7 text-[#0A1628] sm:text-xl">
+              &quot;El talento merece oportunidades. Nosotros te ayudamos a demostrarlo.&quot;
             </blockquote>
           </div>
-          <div className="self-center">
-            <div className="flex items-center gap-3">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 48 48"
-                className="size-12 shrink-0 drop-shadow-[0_0_10px_rgba(59,130,246,0.45)]"
-              >
-                <rect width="48" height="48" rx="14" fill="#F5F7FB" />
-                <path d="M24 4h10c5.5 0 10 4.5 10 10v10H24V4Z" fill="#D21034" />
-                <path d="M4 24h20v20H14C8.5 44 4 39.5 4 34V24Z" fill="#072B61" />
-                <path d="M24 24h20v10c0 5.5-4.5 10-10 10H24V24Z" fill="#F5F7FB" />
-                <path
-                  d="m14 10 1.6 4.8h5.1l-4.1 3 1.6 4.9-4.2-3-4.1 3 1.6-4.9-4.1-3h5L14 10Z"
-                  fill="#072B61"
-                />
-                <path
-                  d="m34 25.3 1.6 4.9h5.1l-4.1 3 1.6 4.8-4.2-3-4.1 3 1.6-4.8-4.1-3h5l1.6-4.9Z"
-                  fill="#D21034"
-                />
-              </svg>
-              <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">
-                Creado desde Panam&aacute; para quienes no tienen palanca
-              </h2>
-            </div>
-            <div className="mt-6 space-y-5 text-lg leading-8 text-slate-600">
-              <p>Soy Roni.</p>
-              <p>
-                Durante a&ntilde;os envi&eacute; curr&iacute;culums, busqu&eacute;
-                oportunidades y vi c&oacute;mo muchas personas con talento quedaban
-                fuera por no tener contactos, recomendaciones o una estrategia
-                clara.
-              </p>
-              <p>
-                Mientras algunos consegu&iacute;an entrevistas gracias a conexiones,
-                otros con habilidades reales eran descartados sin siquiera saber
-                por qu&eacute;.
-              </p>
-              <p>
-                Con el tiempo logr&eacute; trabajar de forma remota, convertirme en
-                n&oacute;mada digital y construir proyectos online, pero entend&iacute;
-                algo importante:
-              </p>
-              <p className="text-xl font-bold text-[#0A1628]">
-                El problema no siempre es la falta de talento.
-              </p>
-              <p>
-                Muchas veces el problema es no saber c&oacute;mo presentar ese
-                talento.
-              </p>
-              <p>Por eso naci&oacute; SinPalanca.app.</p>
-              <p>
-                Mi misi&oacute;n es ayudar a estudiantes, profesionales y personas
-                que buscan empleo a entender qu&eacute; est&aacute; frenando sus
-                oportunidades y c&oacute;mo mejorar sus posibilidades utilizando
-                estrategia, datos e inteligencia artificial.
-              </p>
-              <p className="font-bold text-[#1B4FE4]">
-                Porque las oportunidades deber&iacute;an depender m&aacute;s de la
-                preparaci&oacute;n que de los contactos.
-              </p>
-            </div>
-          </div>
-        </div>
+        </article>
       </section>
 
       <section id="faq" className="bg-white px-5 py-16 sm:px-8 lg:py-24">
@@ -1097,7 +1049,7 @@ export default function Home() {
           <div>
             <p className="font-black text-[#0A1628]">SinPalanca.app</p>
             <p>Consigue trabajo sin contactos.</p>
-            <p>Hecho desde Panamá por Roniher.</p>
+            <p>Creado desde Panamá para Latinoamérica.</p>
           </div>
           <div className="flex flex-wrap gap-4 font-bold">
             <a href="#inicio" className="hover:text-[#1B4FE4]">
