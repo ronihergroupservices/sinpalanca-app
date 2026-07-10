@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/landing/navbar";
+import { FounderSection } from "@/components/landing/founder-section";
 import {
   AtsSection,
   DeliverablesSection,
@@ -24,6 +25,7 @@ export default function Home() {
         <ProcessSection />
         <DeliverablesSection />
         <PricingSection />
+        <FounderSection />
         <StorySection />
         <FaqSection />
         <FinalCta />

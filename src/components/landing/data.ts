@@ -40,9 +40,9 @@ export const plans: Plan[] = [
     name: "Plan Inicio",
     price: "$5.99 USD",
     idealFor:
-      "Personas que quieren entender los errores principales de su CV y recibir recomendaciones iniciales.",
+      "Personas que quieren identificar los principales errores de su CV y recibir una guía inicial para mejorar su perfil.",
     href: STRIPE_INICIO,
-    cta: "Comprar Plan Inicio",
+    cta: "Comenzar por $5.99",
     featured: false,
     features: [
       "CV analizado por IA",
@@ -56,25 +56,30 @@ export const plans: Plan[] = [
     ],
   },
   {
-    name: "Plan Profesional",
+    name: "Plan Founder",
     price: "$19.99 USD",
     idealFor:
-      "Personas que quieren un análisis profundo, CV optimizado y una estrategia profesional completa.",
+      "Conviértete en uno de los primeros 200 miembros que apoyan la construcción de SinPalanca.app y recibe beneficios exclusivos dentro de la plataforma.",
     href: STRIPE_PROFESIONAL,
-    cta: "Comprar Plan Profesional",
+    cta: "Convertirme en Founder",
     featured: true,
-    badge: "Más completo",
+    badge: "Primeros 200 Founders",
     features: [
-      "Todo lo incluido en Plan Inicio",
-      "CV reescrito y optimizado hasta 5 veces",
-      "Carta de presentación personalizada",
-      "Salarios base por país y sector",
-      "Mercado laboral actual",
-      "Carreras con mayor demanda",
-      "Mejores certificaciones",
-      "Habilidades más demandadas",
-      "Estrategia completa para LinkedIn",
-      "Reporte profesional en PDF",
+      "Todo lo incluido en el Plan Inicio",
+      "Análisis profesional completo del CV",
+      "Career Score personalizado",
+      "ATS Score",
+      "Errores críticos detectados",
+      "Recomendaciones de mejora",
+      "Top de empleos compatibles con el perfil",
+      "Roadmap profesional de 90 días",
+      "Carta de presentación",
+      "Recomendaciones para LinkedIn",
+      "Acceso prioritario a nuevas herramientas",
+      "Insignia exclusiva Founder",
+      "Soporte prioritario",
+      "Acceso anticipado a futuras funciones",
+      "Actualizaciones del desarrollo del producto",
     ],
   },
 ];
@@ -213,7 +218,7 @@ export const questions = [
   {
     question: "¿El pago es único?",
     answer:
-      "Sí. Plan Inicio y Plan Profesional se pagan una sola vez. No son suscripciones mensuales.",
+      "Sí. Plan Inicio y Plan Founder se pagan una sola vez. No son suscripciones mensuales.",
   },
   {
     question: "¿Qué pasa después de pagar?",
@@ -228,6 +233,6 @@ export const questions = [
   {
     question: "¿Puedo mejorar mi CV varias veces?",
     answer:
-      "Plan Profesional incluye la reescritura y optimización del CV hasta cinco veces. Plan Inicio se concentra en el diagnóstico y las recomendaciones iniciales.",
+      "Plan Founder incluye revisión y mejora del CV dentro de su análisis profesional. Plan Inicio se concentra en el diagnóstico y la guía inicial.",
   },
 ];

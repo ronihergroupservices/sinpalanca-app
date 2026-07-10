@@ -8,6 +8,8 @@ import {
   STRIPE_PROFESIONAL,
   type IconName,
 } from "./data";
+import { SpotlightSection } from "./spotlight-section";
+import { FounderBadge } from "./founder-badge";
 import { Brand, ButtonLink, CheckItem, Icon, SectionHeading } from "./ui";
 
 export function Hero() {
@@ -48,20 +50,27 @@ export function Hero() {
         </div>
       </section>
 
-      <div className="border-b border-blue-100 bg-white px-4 py-5 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-5xl gap-4 text-center sm:grid-cols-3 sm:divide-x sm:divide-blue-100">
+      <section aria-label="Beneficios principales" className="stats-stage relative border-b border-blue-100 px-4 py-7 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            ["Pago único", "Sin mensualidades"],
-            ["Estrategia clara", "Sin promesas de empleo"],
-            ["Enfoque LATAM", "Para distintos niveles de experiencia"],
-          ].map(([title, text]) => (
-            <div key={title} className="px-4">
-              <p className="text-sm font-bold text-[var(--ink)]">{title}</p>
-              <p className="mt-1 text-xs text-slate-500">{text}</p>
-            </div>
+            ["check", "Pago único", "Sin mensualidades"],
+            ["target", "Estrategia personalizada", "Prioridades para tu perfil"],
+            ["scanner", "Compatible con ATS", "Mejor estructura y claridad"],
+            ["globe", "Enfoque LATAM", "Distintos niveles de experiencia"],
+          ].map(([icon, title, text], index) => (
+            <article key={title} className="stat-card reveal-up group">
+              <span className={`stat-count stat-count-${index + 1}`} aria-hidden="true" />
+              <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-blue-600 text-white shadow-[0_9px_24px_rgba(27,79,228,0.24)] transition group-hover:scale-105">
+                <Icon name={icon as IconName} className="size-5" />
+              </span>
+              <div>
+                <p className="text-sm font-bold text-[var(--ink)]">{title}</p>
+                <p className="mt-1 text-xs leading-5 text-slate-500">{text}</p>
+              </div>
+            </article>
           ))}
         </div>
-      </div>
+      </section>
     </>
   );
 }
@@ -74,52 +83,115 @@ const problems: Array<{ icon: IconName; number: string; title: string; text: str
 
 export function ProblemSection() {
   return (
-    <section className="section-dark relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="orb-blue pointer-events-none absolute -left-20 top-1/3 size-80 rounded-full blur-3xl" />
+    <SpotlightSection>
+      <div className="problem-grid pointer-events-none absolute inset-0" />
+      <div className="problem-spotlight pointer-events-none absolute inset-0" />
+      <div className="problem-title-glow pointer-events-none absolute left-1/2 top-16 h-72 w-[min(90vw,820px)] -translate-x-1/2 rounded-full blur-3xl" />
+      <div className="problem-particles pointer-events-none absolute inset-0" aria-hidden="true">
+        {[12, 24, 38, 57, 72, 86].map((position, index) => (
+          <span
+            key={position}
+            className="problem-particle"
+            style={{ left: `${position}%`, animationDelay: `${index * 620}ms` }}
+          />
+        ))}
+      </div>
+
       <div className="relative mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="El problema real"
-          title="En LATAM, el talento no siempre basta."
-          description="Personas preparadas quedan fuera porque su perfil no es visible, su CV no supera filtros o nadie les explica qué deberían mejorar primero."
-          dark
-        />
-        <div className="mt-12 grid gap-5 lg:grid-cols-[1fr_1fr_1fr_1.08fr]">
+        <div className="mx-auto max-w-5xl text-center reveal-up">
+          <span className="inline-flex items-center gap-2 rounded-full border border-blue-200/20 bg-white/[0.07] px-4 py-2 text-xs font-bold text-blue-100 backdrop-blur-xl">
+            <span className="size-1.5 rounded-full bg-blue-300 shadow-[0_0_12px_4px_rgba(147,197,253,0.42)]" />
+            Problema detectado
+          </span>
+          <p className="section-label mt-7 text-blue-200">El problema real</p>
+          <h2 className="problem-title mt-4 bg-gradient-to-b from-white via-blue-50 to-blue-300 bg-clip-text text-5xl font-extrabold leading-[0.98] text-transparent sm:text-6xl lg:text-7xl">
+            En LATAM, el talento no siempre basta.
+          </h2>
+          <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-blue-50/75 sm:text-xl">
+            Personas preparadas quedan fuera porque su perfil no es visible, su CV no supera filtros o nadie les explica qué deberían mejorar primero.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-5 lg:grid-cols-3">
           {problems.map((problem, index) => (
-            <article key={problem.number} className="premium-card-dark reveal-up group p-6" style={{ animationDelay: `${index * 80}ms` }}>
-              <div className="flex items-start justify-between gap-4">
-                <span className="grid size-12 place-items-center rounded-2xl border border-blue-300/20 bg-blue-400/10 text-blue-300 transition group-hover:bg-blue-400/15">
-                  <Icon name={problem.icon} className="size-6" />
+            <article
+              key={problem.number}
+              className="problem-card reveal-up group relative min-h-72 overflow-hidden p-7 sm:p-8"
+              style={{ animationDelay: `${index * 90}ms` }}
+            >
+              <span className="problem-card-line absolute inset-x-8 top-0 h-px" />
+              <div className="absolute -right-12 -top-12 size-44 rounded-full bg-blue-400/10 blur-3xl transition duration-500 group-hover:bg-blue-400/20" />
+              <div className="relative flex items-start justify-between gap-5">
+                <span className="grid size-16 place-items-center rounded-2xl border border-blue-200/20 bg-gradient-to-br from-blue-400/20 to-blue-600/5 text-blue-200 shadow-[0_0_34px_rgba(59,130,246,0.2)] transition duration-300 group-hover:scale-105 group-hover:text-white">
+                  <Icon name={problem.icon} className="size-8" />
                 </span>
-                <span className="font-mono text-3xl font-bold text-white/15">{problem.number}</span>
+                <span className="font-mono text-6xl font-bold leading-none text-white/[0.08] transition group-hover:text-blue-300/15">
+                  {problem.number}
+                </span>
               </div>
-              <h3 className="mt-7 text-xl font-bold text-white">{problem.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-blue-100/65">{problem.text}</p>
+              <span className="relative mt-8 inline-flex rounded-full border border-blue-200/15 bg-blue-300/10 px-3 py-1.5 text-[10px] font-bold uppercase text-blue-200">
+                Problema detectado
+              </span>
+              <h3 className="relative mt-4 text-2xl font-bold text-white">{problem.title}</h3>
+              <p className="relative mt-3 max-w-sm leading-7 text-blue-50/65">{problem.text}</p>
             </article>
           ))}
+        </div>
 
-          <aside className="reveal-up rounded-3xl border border-blue-300/20 bg-gradient-to-b from-blue-500/15 to-white/[0.04] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.25)] [animation-delay:240ms]">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="section-label text-blue-300">Diagnóstico rápido</p>
-                <h3 className="mt-2 text-xl font-bold text-white">Visibilidad del perfil</h3>
+        <aside className="diagnostic-dashboard reveal-up relative mt-6 overflow-hidden rounded-[28px] border border-blue-200/20 p-6 sm:p-8 lg:p-9 [animation-delay:180ms]">
+          <div className="absolute inset-x-16 top-0 h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent" />
+          <div className="relative grid items-center gap-8 lg:grid-cols-[0.72fr_0.5fr_1.35fr]">
+            <div>
+              <div className="flex items-center gap-3">
+                <span className="grid size-12 place-items-center rounded-2xl bg-blue-500/15 text-blue-200 shadow-[0_0_28px_rgba(59,130,246,0.2)]">
+                  <Icon name="chart" className="size-6" />
+                </span>
+                <div>
+                  <p className="section-label text-blue-300">Diagnóstico rápido</p>
+                  <h3 className="mt-1 text-2xl font-bold text-white">Visibilidad del perfil</h3>
+                </div>
               </div>
-              <Icon name="chart" className="size-7 text-blue-300" />
+              <p className="mt-6 max-w-sm text-lg font-semibold leading-7 text-white">
+                No es falta de talento. Es falta de visibilidad y estrategia.
+              </p>
+              <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-amber-200/20 bg-amber-300/10 px-3 py-1.5 text-xs font-bold text-amber-100">
+                <span className="size-1.5 rounded-full bg-amber-300" />
+                Nivel de perfil: En desarrollo
+              </span>
             </div>
-            <div className="mt-7 space-y-5">
-              {[["CV", "54"], ["ATS", "48"], ["Estrategia", "37"]].map(([label, value]) => (
+
+            <div className="mx-auto text-center">
+              <div className="score-ring score-ring-54 grid size-40 place-items-center rounded-full">
+                <div className="grid size-28 place-items-center rounded-full border border-white/10 bg-[#0b1c35]">
+                  <div>
+                    <span className="score-count score-count-54 font-mono text-4xl font-bold text-white" role="img" aria-label="54 de 100" />
+                    <p className="mt-1 text-[10px] font-bold uppercase text-blue-300">Career Score</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
+              {[
+                ["Career Score", "54", "score-54"],
+                ["ATS Score", "48", "score-48"],
+                ["Visibilidad / estrategia", "37", "score-37"],
+              ].map(([label, value, scoreClass]) => (
                 <div key={label}>
-                  <div className="flex justify-between text-sm"><span className="font-semibold text-blue-100">{label}</span><span className="font-mono font-bold text-white">{value}/100</span></div>
-                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10"><div className="progress-grow h-full rounded-full bg-gradient-to-r from-blue-600 to-blue-300" style={{ width: `${value}%` }} /></div>
+                  <div className="flex items-end justify-between gap-4">
+                    <span className="text-sm font-semibold text-blue-100">{label}</span>
+                    <span className={`metric-count ${scoreClass} font-mono text-lg font-bold text-white`} role="img" aria-label={`${value} de 100`} />
+                  </div>
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/10">
+                    <div className="progress-grow h-full rounded-full bg-gradient-to-r from-blue-600 via-blue-400 to-emerald-400" style={{ width: `${value}%` }} />
+                  </div>
                 </div>
               ))}
             </div>
-            <p className="mt-7 rounded-2xl border border-white/10 bg-white/[0.055] p-4 text-sm font-semibold leading-6 text-white">
-              No es falta de talento. Es falta de visibilidad y estrategia.
-            </p>
-          </aside>
-        </div>
+          </div>
+        </aside>
       </div>
-    </section>
+    </SpotlightSection>
   );
 }
 
@@ -170,7 +242,7 @@ export function AtsSection() {
 
 export function ProcessSection() {
   const steps = [
-    { icon: "target" as IconName, number: "01", title: "Elige tu análisis", text: "Selecciona Plan Inicio o Plan Profesional.", items: ["Pago único", "Dos niveles de análisis"] },
+    { icon: "target" as IconName, number: "01", title: "Elige tu análisis", text: "Selecciona Plan Inicio o Plan Founder.", items: ["Pago único", "Dos niveles de análisis"] },
     { icon: "person" as IconName, number: "02", title: "Completa tu perfil", text: "Comparte tu experiencia, educación, habilidades, objetivos y CV.", items: ["Información profesional", "Contexto de tus objetivos"] },
     { icon: "map" as IconName, number: "03", title: "Recibe tu estrategia", text: "Obtén recomendaciones, mejoras de CV, scores y un plan de acción.", items: ["Prioridades claras", "Roadmap de 90 días"] },
   ];
@@ -231,30 +303,113 @@ export function DeliverablesSection() {
 
 export function PricingSection() {
   return (
-    <section id="precios" className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="mx-auto max-w-6xl">
+    <section id="precios" className="pricing-stage relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <div className="pointer-events-none absolute left-1/2 top-24 size-[520px] -translate-x-1/2 rounded-full bg-blue-400/10 blur-3xl" />
+      <div className="relative mx-auto max-w-6xl">
+        <div className="mx-auto mb-8 flex w-fit items-center gap-4 rounded-full border border-blue-100 bg-white/80 px-4 py-2.5 shadow-[0_12px_38px_rgba(27,79,228,0.1)] backdrop-blur">
+          <div className="flex -space-x-2" aria-hidden="true">
+            {[0, 1, 2].map((item) => (
+              <span key={item} className="activity-avatar grid size-7 place-items-center rounded-full border-2 border-white bg-blue-100 text-blue-600" style={{ animationDelay: `${item * 180}ms` }}>
+                <Icon name="person" className="size-3.5" />
+              </span>
+            ))}
+          </div>
+          <div>
+            <p className="text-xs font-bold text-[var(--ink)]">Personas mejorando su CV esta semana</p>
+            <p className="mt-0.5 flex items-center gap-1.5 text-[10px] text-slate-500">
+              <span className="activity-dot size-1.5 rounded-full bg-emerald-500" />
+              Actividad en crecimiento
+            </p>
+          </div>
+        </div>
+
         <SectionHeading eyebrow="Precios simples" title="Invierte una vez en mejorar tu perfil profesional." description="Pago único. Sin mensualidades." align="center" />
-        <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-2">
-          {plans.map((plan) => (
-            <article key={plan.name} className={`reveal-up relative flex flex-col rounded-[28px] border p-6 sm:p-8 ${plan.featured ? "border-blue-400 bg-[var(--navy)] text-white shadow-[0_28px_80px_rgba(7,20,38,0.25)]" : "border-blue-100 bg-white text-[var(--ink)] shadow-[0_20px_60px_rgba(27,79,228,0.1)]"}`}>
-              {plan.badge && <span className="absolute right-5 top-5 rounded-full bg-emerald-400 px-3 py-1.5 text-xs font-bold text-emerald-950">{plan.badge}</span>}
-              <p className={`section-label ${plan.featured ? "text-blue-300" : "text-blue-600"}`}>{plan.name}</p>
-              <div className="mt-5 flex flex-wrap items-end gap-x-3 gap-y-1">
-                <strong className="font-mono text-4xl font-bold sm:text-5xl">{plan.price.replace(" USD", "")}</strong>
-                <span className={`pb-1 text-sm ${plan.featured ? "text-blue-200" : "text-slate-500"}`}>USD · Pago único</span>
+
+        <div className="pricing-assurance mt-9 grid overflow-hidden rounded-2xl border border-blue-100 bg-white/85 shadow-[0_14px_44px_rgba(27,79,228,0.08)] sm:grid-cols-3">
+          {[
+            ["check", "Pago único"],
+            ["target", "Sin mensualidades"],
+            ["sparkles", "Acceso inmediato"],
+          ].map(([icon, label], index) => (
+            <div key={label} className="flex items-center justify-center gap-2.5 border-b border-blue-50 px-4 py-3.5 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0">
+              <Icon name={icon as IconName} className="size-4 text-blue-600" />
+              <span className="text-sm font-bold text-[var(--ink)]">{label}</span>
+              {index === 2 && <span className="size-1.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-7">
+          {plans.map((plan, planIndex) => (
+            <article
+              key={plan.name}
+              id={plan.featured ? "plan-founder" : undefined}
+              className={`pricing-card reveal-up group relative flex flex-col p-7 sm:p-10 ${plan.featured ? "pricing-card-featured text-white lg:scale-[1.025]" : "text-[var(--ink)]"}`}
+              style={{ animationDelay: `${planIndex * 100}ms` }}
+            >
+              {plan.featured && (
+                <div className="absolute -top-5 left-1/2 z-10 -translate-x-1/2 rounded-full border border-emerald-200/30 bg-emerald-400 px-5 py-2 text-xs font-extrabold text-emerald-950 shadow-[0_10px_30px_rgba(16,185,129,0.25)]">
+                  Primeros 200 Founders
+                </div>
+              )}
+              <div className="pricing-card-glow pointer-events-none absolute inset-x-12 top-0 h-px" />
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <p className={`section-label ${plan.featured ? "text-blue-300" : "text-blue-600"}`}>{plan.name}</p>
+                <span className={`rounded-full px-3 py-1.5 text-xs font-bold ${plan.featured ? "bg-emerald-400 text-emerald-950" : "border border-blue-200 bg-blue-50 text-blue-700"}`}>
+                  {plan.featured ? "Acceso fundador" : "Ideal para comenzar"}
+                </span>
               </div>
-              <div className={`mt-6 rounded-2xl p-4 ${plan.featured ? "border border-white/10 bg-white/[0.055]" : "bg-blue-50"}`}>
+
+              <div className="mt-7 flex flex-wrap items-end gap-x-3 gap-y-1">
+                <strong className="font-mono text-5xl font-bold sm:text-6xl">{plan.price.replace(" USD", "")}</strong>
+                <span className={`pb-2 text-sm ${plan.featured ? "text-blue-200" : "text-slate-500"}`}>USD · Pago único</span>
+              </div>
+
+              <div className={`mt-7 border-y py-5 ${plan.featured ? "border-white/10" : "border-blue-100"}`}>
                 <p className={`text-xs font-bold uppercase ${plan.featured ? "text-blue-300" : "text-blue-600"}`}>Ideal para</p>
                 <p className={`mt-2 text-sm leading-6 ${plan.featured ? "text-blue-100/75" : "text-slate-600"}`}>{plan.idealFor}</p>
               </div>
+
+              {plan.featured && (
+                <div className="mt-6 flex flex-col gap-4 rounded-2xl border border-amber-200/15 bg-amber-200/[0.055] p-4 sm:flex-row sm:items-center">
+                  <FounderBadge compact />
+                  <p className="text-xs leading-5 text-blue-100/65">
+                    Tu insignia Founder quedará asociada a tu perfil cuando el dashboard esté disponible.
+                  </p>
+                </div>
+              )}
+
               <ul className="mt-7 flex-1 space-y-3.5">
-                {plan.features.map((feature) => <CheckItem key={feature} dark={plan.featured}>{feature}</CheckItem>)}
+                {plan.features.map((feature, featureIndex) => (
+                  <li key={feature} className={`flex items-start gap-3 ${plan.featured ? "text-blue-50" : "text-slate-700"}`}>
+                    <span className="pricing-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-emerald-500 text-white" style={{ animationDelay: `${featureIndex * 70}ms` }}>
+                      <svg aria-hidden="true" viewBox="0 0 20 20" className="size-3.5" fill="none">
+                        <path className="pricing-check-path" d="m4 10 4 4 8-9" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    <span className="leading-6">{feature}</span>
+                  </li>
+                ))}
               </ul>
-              <ButtonLink href={plan.href} variant={plan.featured ? "light" : "primary"} className="mt-8 justify-center">{plan.cta}</ButtonLink>
+
+              <ButtonLink
+                href={plan.href}
+                variant={plan.featured ? "light" : "primary"}
+                className="pricing-button mt-9 justify-center"
+              >
+                {plan.cta}
+              </ButtonLink>
+              {plan.featured && (
+                <p className="mt-4 text-center text-xs font-semibold text-blue-200/70">
+                  Disponible únicamente para los primeros 200 miembros fundadores.
+                </p>
+              )}
             </article>
           ))}
         </div>
-        <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-6 text-slate-500">SinPalanca mejora la forma en que presentas tu perfil. Ningún plan garantiza entrevistas ni empleo.</p>
+        <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-6 text-slate-500">
+          SinPalanca mejora la forma en que presentas tu perfil. Ningún plan garantiza entrevistas ni empleo.
+        </p>
       </div>
     </section>
   );
@@ -326,7 +481,7 @@ export function FinalCta() {
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-blue-100/70">Tu problema quizás no es falta de talento. Puede ser tu CV, tu estrategia o la forma en que estás mostrando tus habilidades.</p>
         <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
           <ButtonLink href={STRIPE_INICIO} variant="light" className="justify-center">Comprar Plan Inicio · $5.99</ButtonLink>
-          <ButtonLink href={STRIPE_PROFESIONAL} className="justify-center border border-blue-300/20">Comprar Plan Profesional · $19.99</ButtonLink>
+          <ButtonLink href={STRIPE_PROFESIONAL} className="justify-center border border-blue-300/20">Convertirme en Founder · $19.99</ButtonLink>
         </div>
       </div>
     </section>
