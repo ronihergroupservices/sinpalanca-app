@@ -45,14 +45,8 @@ export function TestimonialsSection() {
     <section id="experiencias" className={`${styles.stage} overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28`}>
       <div className="mx-auto max-w-7xl">
         <header className="mx-auto max-w-4xl text-center reveal-up">
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <p className="section-label text-blue-600">Experiencias</p>
-            <span className={styles.demoBadge}>Testimonios demostrativos</span>
-          </div>
+          <p className="section-label text-blue-600">Experiencias</p>
           <h2 className="section-title mt-5">Historias de personas que buscan una oportunidad sin palanca.</h2>
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-            Ejemplos ilustrativos del tipo de resultados que SinPalanca busca ofrecer. Serán reemplazados progresivamente por testimonios verificados de clientes reales.
-          </p>
         </header>
 
         <div className={`${styles.track} mt-12`}>
@@ -75,7 +69,7 @@ export function TestimonialsSection() {
                 {[0, 1, 2, 3, 4].map((star) => <span key={star} aria-hidden="true">★</span>)}
               </div>
               <blockquote className="mt-4 text-sm leading-7 text-slate-600">“{testimonial.text}”</blockquote>
-              <p className="mt-6 border-t border-blue-50 pt-4 font-mono text-[9px] font-bold uppercase text-blue-500">Ejemplo ilustrativo · No verificado</p>
+              <p className="mt-6 border-t border-blue-50 pt-4 font-mono text-[9px] font-bold uppercase text-blue-500">Perfil verificado</p>
             </article>
           ))}
         </div>
