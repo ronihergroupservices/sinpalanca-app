@@ -1,10 +1,11 @@
 export const STRIPE_INICIO =
   "https://buy.stripe.com/6oU4gA2vr7Nw8U1eqKcMM0v";
-export const STRIPE_PROFESIONAL =
+export const STRIPE_FOUNDER =
   "https://buy.stripe.com/cNicN6fid6Js7PXciCcMM0w";
 
 export type IconName =
   | "arrow"
+  | "bookmark"
   | "briefcase"
   | "chart"
   | "check"
@@ -59,27 +60,23 @@ export const plans: Plan[] = [
     name: "Plan Founder",
     price: "$19.99 USD",
     idealFor:
-      "Conviértete en uno de los primeros 200 miembros que apoyan la construcción de SinPalanca.app y recibe beneficios exclusivos dentro de la plataforma.",
-    href: STRIPE_PROFESIONAL,
-    cta: "Convertirme en Founder",
+      "Conviértete en uno de los primeros 100 miembros que apoyan la construcción de SinPalanca.app y recibe acceso prioritario a las herramientas que estamos creando.",
+    href: STRIPE_FOUNDER,
+    cta: "Ser Founder por $19.99",
     featured: true,
-    badge: "Primeros 200 Founders",
+    badge: "Primeros 100 Founders",
     features: [
       "Todo lo incluido en el Plan Inicio",
-      "Análisis profesional completo del CV",
-      "Career Score personalizado",
-      "ATS Score",
-      "Errores críticos detectados",
-      "Recomendaciones de mejora",
-      "Top de empleos compatibles con el perfil",
-      "Roadmap profesional de 90 días",
-      "Carta de presentación",
-      "Recomendaciones para LinkedIn",
-      "Acceso prioritario a nuevas herramientas",
-      "Insignia exclusiva Founder",
-      "Soporte prioritario",
-      "Acceso anticipado a futuras funciones",
-      "Actualizaciones del desarrollo del producto",
+      "Acceso prioritario a SinPalanca AI Job Match",
+      "Insignia Founder",
+      "Dashboard personal futuro",
+      "Análisis en vivo del CV",
+      "Optimización por vacante",
+      "Centro de oportunidades",
+      "Match Score",
+      "Seguimiento de aplicaciones",
+      "Simulador de entrevistas futuro",
+      "Acceso anticipado a nuevas herramientas",
     ],
   },
 ];

@@ -10,6 +10,7 @@ type IconProps = {
 export function Icon({ name, className = "size-5" }: IconProps) {
   const paths: Record<IconName, ReactNode> = {
     arrow: <path d="m5 12 14 0m-6-6 6 6-6 6" />,
+    bookmark: <path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-4-6 4Z" />,
     briefcase: <><path d="M9 7V5h6v2" /><rect x="3" y="7" width="18" height="12" rx="2" /><path d="M3 12h18M10 12v2h4v-2" /></>,
     chart: <><path d="M4 19V9m6 10V5m6 14v-7m4 7H2" /></>,
     check: <path d="m5 12 4 4L19 6" />,

@@ -1,5 +1,8 @@
 import { Navbar } from "@/components/landing/navbar";
+import { ActivityStrip } from "@/components/landing/activity-strip";
 import { FounderSection } from "@/components/landing/founder-section";
+import { JobMatchSection } from "@/components/landing/job-match-section";
+import { TestimonialsSection } from "@/components/landing/testimonials-section";
 import {
   AtsSection,
   DeliverablesSection,
@@ -24,8 +27,11 @@ export default function Home() {
         <AtsSection />
         <ProcessSection />
         <DeliverablesSection />
+        <ActivityStrip />
         <PricingSection />
         <FounderSection />
+        <JobMatchSection />
+        <TestimonialsSection />
         <StorySection />
         <FaqSection />
         <FinalCta />

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { STRIPE_PROFESIONAL, type IconName } from "./data";
+import { STRIPE_FOUNDER, type IconName } from "./data";
 import { FounderBadge } from "./founder-badge";
 import { ButtonLink, Icon } from "./ui";
 
@@ -17,6 +17,9 @@ const availableToday = [
 const inDevelopment = [
   ["Dashboard personal", "En desarrollo"],
   ["Historial de CV y reportes", "En desarrollo"],
+  ["SinPalanca AI Job Match", "Próximamente"],
+  ["Centro de oportunidades", "Próximamente"],
+  ["Seguimiento de aplicaciones", "Próximamente"],
   ["Análisis en vivo del CV con IA", "Próximamente"],
   ["Comparación del CV con una vacante específica", "Próximamente"],
   ["Recomendaciones automáticas de palabras clave", "Próximamente"],
@@ -66,7 +69,7 @@ const roadmap: Array<{
     stage: "Etapa 4",
     title: "Copiloto profesional completo",
     status: "Visión futura",
-    description: "Entrevistas con IA, comparación con vacantes, recomendaciones y roadmap interactivo.",
+    description: "Job Match, entrevistas con IA, comparación con vacantes, recomendaciones y roadmap interactivo.",
     icon: "compass",
     state: "future",
   },
@@ -88,7 +91,7 @@ export function FounderSection() {
 
       <div className="relative mx-auto max-w-7xl">
         <div className="mx-auto max-w-4xl text-center reveal-up">
-          <span className="founder-label">Los primeros 200 Founders</span>
+          <span className="founder-label">Los primeros 100 Founders</span>
           <h2 className="mt-6 text-4xl font-bold leading-[1.04] sm:text-5xl lg:text-6xl">
             Tu apoyo no solo mejora tu CV. Ayuda a construir el futuro de SinPalanca.
           </h2>
@@ -152,7 +155,7 @@ export function FounderSection() {
                 Cada Founder nos ayuda a mejorar la tecnología, automatizar los análisis y construir nuevas herramientas para la comunidad.
               </p>
               <p className="mt-6 border-l-2 border-amber-300 pl-5 text-xl font-bold leading-8 text-white">
-                Los primeros 200 no solo serán clientes. Serán parte de la historia de SinPalanca.
+                Los primeros 100 no solo serán clientes. Serán parte de la historia de SinPalanca.
               </p>
             </div>
           </div>
@@ -186,13 +189,13 @@ export function FounderSection() {
         <div className="founder-cta relative mt-14 overflow-hidden rounded-[30px] border border-blue-200/20 px-6 py-10 text-center sm:px-10 sm:py-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,.2),transparent_45%)]" />
           <div className="relative mx-auto max-w-3xl">
-            <h3 className="text-3xl font-bold sm:text-4xl">Sé parte de los primeros 200.</h3>
+            <h3 className="text-3xl font-bold sm:text-4xl">Sé parte de los primeros 100.</h3>
             <p className="mx-auto mt-5 max-w-2xl leading-7 text-blue-100/70">
               Mejora tu perfil profesional hoy y acompáñanos mientras construimos una plataforma más poderosa para quienes buscan oportunidades sin contactos.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <ButtonLink href={STRIPE_PROFESIONAL} variant="light" className="founder-button justify-center">
-                Convertirme en Founder por $19.99
+              <ButtonLink href={STRIPE_FOUNDER} variant="light" className="founder-button justify-center">
+                Ser Founder por $19.99
               </ButtonLink>
               <ButtonLink href="#plan-founder" variant="secondary" className="justify-center border-white/15 bg-white/5 text-white hover:border-white/30 hover:bg-white/10">
                 Ver todo lo que incluye

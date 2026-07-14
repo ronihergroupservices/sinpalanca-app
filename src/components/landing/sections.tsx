@@ -4,8 +4,7 @@ import {
   deliverables,
   plans,
   questions,
-  STRIPE_INICIO,
-  STRIPE_PROFESIONAL,
+  STRIPE_FOUNDER,
   type IconName,
 } from "./data";
 import { SpotlightSection } from "./spotlight-section";
@@ -306,23 +305,6 @@ export function PricingSection() {
     <section id="precios" className="pricing-stage relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div className="pointer-events-none absolute left-1/2 top-24 size-[520px] -translate-x-1/2 rounded-full bg-blue-400/10 blur-3xl" />
       <div className="relative mx-auto max-w-6xl">
-        <div className="mx-auto mb-8 flex w-fit items-center gap-4 rounded-full border border-blue-100 bg-white/80 px-4 py-2.5 shadow-[0_12px_38px_rgba(27,79,228,0.1)] backdrop-blur">
-          <div className="flex -space-x-2" aria-hidden="true">
-            {[0, 1, 2].map((item) => (
-              <span key={item} className="activity-avatar grid size-7 place-items-center rounded-full border-2 border-white bg-blue-100 text-blue-600" style={{ animationDelay: `${item * 180}ms` }}>
-                <Icon name="person" className="size-3.5" />
-              </span>
-            ))}
-          </div>
-          <div>
-            <p className="text-xs font-bold text-[var(--ink)]">Personas mejorando su CV esta semana</p>
-            <p className="mt-0.5 flex items-center gap-1.5 text-[10px] text-slate-500">
-              <span className="activity-dot size-1.5 rounded-full bg-emerald-500" />
-              Actividad en crecimiento
-            </p>
-          </div>
-        </div>
-
         <SectionHeading eyebrow="Precios simples" title="Invierte una vez en mejorar tu perfil profesional." description="Pago único. Sin mensualidades." align="center" />
 
         <div className="pricing-assurance mt-9 grid overflow-hidden rounded-2xl border border-blue-100 bg-white/85 shadow-[0_14px_44px_rgba(27,79,228,0.08)] sm:grid-cols-3">
@@ -349,7 +331,7 @@ export function PricingSection() {
             >
               {plan.featured && (
                 <div className="absolute -top-5 left-1/2 z-10 -translate-x-1/2 rounded-full border border-emerald-200/30 bg-emerald-400 px-5 py-2 text-xs font-extrabold text-emerald-950 shadow-[0_10px_30px_rgba(16,185,129,0.25)]">
-                  Primeros 200 Founders
+                  Primeros 100 Founders
                 </div>
               )}
               <div className="pricing-card-glow pointer-events-none absolute inset-x-12 top-0 h-px" />
@@ -401,7 +383,7 @@ export function PricingSection() {
               </ButtonLink>
               {plan.featured && (
                 <p className="mt-4 text-center text-xs font-semibold text-blue-200/70">
-                  Disponible únicamente para los primeros 200 miembros fundadores.
+                  Disponible únicamente para los primeros 100 miembros fundadores.
                 </p>
               )}
             </article>
@@ -477,12 +459,13 @@ export function FinalCta() {
       <Image src="/shield.png" width={420} height={420} alt="" aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-1/2 size-[420px] -translate-x-1/2 object-contain opacity-[0.035]" />
       <div className="relative mx-auto max-w-4xl text-center">
         <p className="section-label text-blue-300">Tu siguiente paso</p>
-        <h2 className="mt-5 text-4xl font-bold leading-[1.04] sm:text-5xl lg:text-6xl">Antes de enviar otros 100 CVs, descubre qué está fallando.</h2>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-blue-100/70">Tu problema quizás no es falta de talento. Puede ser tu CV, tu estrategia o la forma en que estás mostrando tus habilidades.</p>
+        <h2 className="mt-5 text-4xl font-bold leading-[1.04] sm:text-5xl lg:text-6xl">Deja de aplicar a ciegas.</h2>
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-blue-100/70">Descubre qué oportunidades encajan contigo, adapta tu CV y construye una estrategia profesional basada en datos.</p>
         <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-          <ButtonLink href={STRIPE_INICIO} variant="light" className="justify-center">Comprar Plan Inicio · $5.99</ButtonLink>
-          <ButtonLink href={STRIPE_PROFESIONAL} className="justify-center border border-blue-300/20">Convertirme en Founder · $19.99</ButtonLink>
+          <ButtonLink href={STRIPE_FOUNDER} variant="light" className="justify-center">Ser Founder por $19.99</ButtonLink>
+          <ButtonLink href="#job-match" variant="secondary" className="justify-center border-white/15 bg-white/5 text-white hover:border-white/30 hover:bg-white/10">Ver vista previa del Job Match</ButtonLink>
         </div>
+        <p className="mt-5 text-xs font-semibold text-blue-200">Pago único. Primeros 100 Founders.</p>
       </div>
     </section>
   );
@@ -500,6 +483,7 @@ export function Footer() {
         <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold text-slate-600">
           <a href="#como-funciona" className="hover:text-blue-600">Cómo funciona</a>
           <a href="#precios" className="hover:text-blue-600">Precios</a>
+          <a href="#job-match" className="hover:text-blue-600">Oportunidades</a>
           <a href="mailto:contacto@sinpalanca.app?subject=Consulta%20de%20privacidad" className="hover:text-blue-600">Privacidad</a>
           <a href="mailto:contacto@sinpalanca.app?subject=Consulta%20sobre%20términos" className="hover:text-blue-600">Términos</a>
           <a href="mailto:contacto@sinpalanca.app" className="hover:text-blue-600">Contacto</a>
