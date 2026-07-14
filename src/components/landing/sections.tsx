@@ -326,34 +326,34 @@ export function PricingSection() {
             <article
               key={plan.name}
               id={plan.featured ? "plan-founder" : undefined}
-              className={`pricing-card reveal-up group relative flex flex-col p-7 sm:p-10 ${plan.featured ? "pricing-card-featured text-white lg:scale-[1.025]" : "text-[var(--ink)]"}`}
+              className={`pricing-card reveal-up group relative flex flex-col p-7 sm:p-10 ${plan.featured ? "pricing-card-featured pricing-founder-card text-white lg:scale-[1.025]" : "text-[var(--ink)]"}`}
               style={{ animationDelay: `${planIndex * 100}ms` }}
             >
               {plan.featured && (
-                <div className="absolute -top-5 left-1/2 z-10 -translate-x-1/2 rounded-full border border-emerald-200/30 bg-emerald-400 px-5 py-2 text-xs font-extrabold text-emerald-950 shadow-[0_10px_30px_rgba(16,185,129,0.25)]">
+                <div className="founder-limit-badge z-10 rounded-full border border-emerald-200/30 bg-emerald-400 font-extrabold text-emerald-950">
                   Primeros 100 Founders
                 </div>
               )}
               <div className="pricing-card-glow pointer-events-none absolute inset-x-12 top-0 h-px" />
-              <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="pricing-plan-header flex flex-wrap items-center justify-between gap-3">
                 <p className={`section-label ${plan.featured ? "text-blue-300" : "text-blue-600"}`}>{plan.name}</p>
-                <span className={`rounded-full px-3 py-1.5 text-xs font-bold ${plan.featured ? "bg-emerald-400 text-emerald-950" : "border border-blue-200 bg-blue-50 text-blue-700"}`}>
+                <span className={`pricing-access-badge rounded-full px-3 py-1.5 text-xs font-bold ${plan.featured ? "bg-emerald-400 text-emerald-950" : "border border-blue-200 bg-blue-50 text-blue-700"}`}>
                   {plan.featured ? "Acceso fundador" : "Ideal para comenzar"}
                 </span>
               </div>
 
-              <div className="mt-7 flex flex-wrap items-end gap-x-3 gap-y-1">
-                <strong className="font-mono text-5xl font-bold sm:text-6xl">{plan.price.replace(" USD", "")}</strong>
-                <span className={`pb-2 text-sm ${plan.featured ? "text-blue-200" : "text-slate-500"}`}>USD · Pago único</span>
+              <div className="pricing-price mt-7 flex flex-wrap items-end gap-x-3 gap-y-1">
+                <strong className="pricing-price-value font-mono text-5xl font-bold sm:text-6xl">{plan.price.replace(" USD", "")}</strong>
+                <span className={`pricing-price-note pb-2 text-sm ${plan.featured ? "text-blue-200" : "text-slate-500"}`}>USD · Pago único</span>
               </div>
 
-              <div className={`mt-7 border-y py-5 ${plan.featured ? "border-white/10" : "border-blue-100"}`}>
+              <div className={`pricing-plan-summary mt-7 border-y py-5 ${plan.featured ? "border-white/10" : "border-blue-100"}`}>
                 <p className={`text-xs font-bold uppercase ${plan.featured ? "text-blue-300" : "text-blue-600"}`}>Ideal para</p>
                 <p className={`mt-2 text-sm leading-6 ${plan.featured ? "text-blue-100/75" : "text-slate-600"}`}>{plan.idealFor}</p>
               </div>
 
               {plan.featured && (
-                <div className="mt-6 flex flex-col gap-4 rounded-2xl border border-amber-200/15 bg-amber-200/[0.055] p-4 sm:flex-row sm:items-center">
+                <div className="pricing-founder-insignia mt-6 flex flex-col gap-4 rounded-2xl border border-amber-200/15 bg-amber-200/[0.055] p-4 sm:flex-row sm:items-center">
                   <FounderBadge compact />
                   <p className="text-xs leading-5 text-blue-100/65">
                     Tu insignia Founder quedará asociada a tu perfil cuando el dashboard esté disponible.
@@ -361,7 +361,7 @@ export function PricingSection() {
                 </div>
               )}
 
-              <ul className="mt-7 flex-1 space-y-3.5">
+              <ul className="pricing-feature-list mt-7 flex-1 space-y-3.5">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={feature} className={`flex items-start gap-3 ${plan.featured ? "text-blue-50" : "text-slate-700"}`}>
                     <span className="pricing-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-emerald-500 text-white" style={{ animationDelay: `${featureIndex * 70}ms` }}>
