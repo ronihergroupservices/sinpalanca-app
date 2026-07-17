@@ -2,6 +2,7 @@ import { Navbar } from "@/components/landing/navbar";
 import { ActivityStrip } from "@/components/landing/activity-strip";
 import { FounderSection } from "@/components/landing/founder-section";
 import { JobMatchSection } from "@/components/landing/job-match-section";
+import { PlatformsStrip } from "@/components/landing/platforms-strip";
 import { TestimonialsSection } from "@/components/landing/testimonials-section";
 import {
   AtsSection,
@@ -23,6 +24,7 @@ export default function Home() {
       <Navbar />
       <main id="contenido" className="overflow-x-clip bg-white text-[var(--ink)]">
         <Hero />
+        <PlatformsStrip />
         <ProblemSection />
         <AtsSection />
         <ProcessSection />
